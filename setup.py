@@ -56,7 +56,8 @@ class LxcBuildExtCommand(BuildExtCommand):
 
     def initialize_options(self):
         super(LxcBuildExtCommand, self).initialize_options()
-        self.no_pkg_config = False
+        # When cross-compiling, don't use pkg-config
+        self.no_pkg_config = True
 
     def build_extensions(self):
         if not self.no_pkg_config:
